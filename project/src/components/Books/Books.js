@@ -17,7 +17,7 @@ export const Books = () => {
     console.log(bks)
 
     return (
-        <>
+        <section className="Books-catalog-section">
             <button onClick={onClickHandler}>get books</button>
             <ul>
                 {bks.map(bok=>
@@ -27,6 +27,6 @@ export const Books = () => {
                     </li>
                     )}
             </ul>
-        </>
+        </section>
     )
 }

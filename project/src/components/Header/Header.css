@@ -4,11 +4,18 @@
     padding: 15px 10px;
 }
 
-.App-header ul > li{
+.App-header ul li{
     display: inline-block;
     list-style-type: none;
     padding: 0px 20px;
+}
 
+.App-header ul li a{
+    text-decoration: none;
+}
+
+.App-header ul li a:hover{
+    color: bisque;
 }
 
 .App-header {
