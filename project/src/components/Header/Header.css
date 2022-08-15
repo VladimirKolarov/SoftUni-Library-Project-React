@@ -1,0 +1,19 @@
+.App-header > .Header-container{
+    display: flex;
+    justify-content: right;
+    padding: 15px 10px;
+}
+
+.App-header ul > li{
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 20px;
+
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 3em;
+    font-size: 1.5em;
+    color: white;
+}
