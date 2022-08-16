@@ -1,3 +1,17 @@
+:root{
+    --white:#fff;
+    --beige:#dcdbba;
+    --light-orange:#ee8d40;
+    --dark-orange:#dd7128;
+    --black:#1d1d1d;
+  }
+
+  .App-header {
+      background-color: var(--black);
+      min-height: 2em;
+      font-size: 1.25em;
+  }
+
 .App-header > .Header-container{
     display: flex;
     justify-content: right;
@@ -12,15 +26,9 @@
 
 .App-header ul li a{
     text-decoration: none;
+    color: var(--white);
 }
 
 .App-header ul li a:hover{
-    color: bisque;
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 3em;
-    font-size: 1.5em;
-    color: white;
+    color: var(--beige);
 }
