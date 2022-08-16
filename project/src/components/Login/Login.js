@@ -3,12 +3,17 @@ import "./Login.css"
 
 export const Login = () => {
 
-    const [user, setUser] = useState({ username: "", password: "" });
+    const [user, setUser] = useState({});
+
+    const changeHandler = (e) => {
+        setUser (oldState => ({...oldState, [e.target.name]: e.target.value}))
+    };
+    
 
     const submitHandler = (e) => {
         e.preventDefault();
-        
-        console.log(`Username: ${user.username} ; Password: ${user.password}`);
+
+        console.log(user)
     }
 
     return (
@@ -20,11 +25,8 @@ export const Login = () => {
                 type="text"
                 name="username"
                 placeholder="Type here"
-                value={user.username}
-                onChange={(e) => {
-                    setUser({ ...user, username: e.target.value })
-                }
-                }
+                onChange={changeHandler}
+                value={user.username || ""}
             />
 
             <label htmlFor="password"> Password</label>
@@ -33,11 +35,8 @@ export const Login = () => {
                 type="password"
                 name="password"
                 placeholder="Type here"
-                value={user.password}
-                onChange={(e) => {
-                    setUser({ ...user, password: e.target.value })
-                }
-                }
+                onChange={changeHandler}
+                value={user.password || ""}
             />
 
             <button>Login</button>
