@@ -1,0 +1,49 @@
+.App .Main .Tac-container {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--light-orange);
+    min-height: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.App .Main .Tac-container .Tac-article {
+    background-color: var(--light-orange);
+    color: var(--black);
+    width: 70%;
+    margin: 20px auto;
+    padding: 40px 90px;
+    border-radius: 40px;
+    border: 1px solid var(--black);
+}
+
+.App .Main .Tac-container .Tac-article h3 {
+    margin-top: 10px;
+}
+
+.App .Main .Tac-container .Tac-article p {
+    text-align: left;
+    margin-top: 5px;
+}
+
+.App .Main .Tac-container .Tac-article button {
+    margin-top: 40px;
+    padding: 5px 35px;
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: var(--dark-orange);
+    border-radius: 20px;
+    border: 2px solid var(--black);
+    cursor: pointer;
+}
+
+.App .Main .Tac-container .Tac-article button:hover {
+    background-color: var(--black);
+    color: var(--light-orange);
+    border-radius: 20px;
+    border: 2px solid var(--black);
+    cursor: pointer;
+}

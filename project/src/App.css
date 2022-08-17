@@ -1,20 +1,22 @@
-:root{
-  --white:#fff;
-  --beige:#dcdbba;
-  --light-orange:#ee8d40;
-  --dark-orange:#dd7128;
-  --black:#1d1d1d;
+:root {
+  --white: #fff;
+  --beige: #dcdbba;
+  --light-orange: #ee8d40;
+  --dark-orange: #dd7128;
+  --black: #1d1d1d;
   --light-beige: #f5f5f5;
-}
+  
+  background-color: var(--light-beige);
 
+}
 
 .App {
   text-align: center;
 }
 
-.App .Main{
-  height: calc(100vh - 3em) ;
-  background-color: var(--light-beige);
-  padding: 25px;
+.App .Main {
+  min-height: calc(100vh - 3em);
+  /* background-color: var(--light-beige); */
+  padding: 0;
 }
 

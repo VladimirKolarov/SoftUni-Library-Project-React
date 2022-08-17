@@ -1,22 +1,23 @@
-.App .Main .Login {
-    max-width: 60%;
+.App .Main .Login-container {
+    max-width: 70%;
     border-radius: 20px;
     margin: auto;
-    
+    padding-top: 10px;
 }
 
-.App .Main .Login label, .App .Main .Login input {
+.App .Main .Login label,
+.App .Main .Login input {
     display: block;
     margin: auto;
     border-radius: 20px;
     color: var(--balck);
     font-size: 1.2em;
-    font-weight: 700;    
+    font-weight: 700;
     padding: 5px 10px;
-    cursor:text;
+    cursor: text;
 }
 
-.App .Main .Login label{
+.App .Main .Login-container .Login label {
     margin-top: 40px;
 }
 
@@ -30,4 +31,10 @@
     border-radius: 20px;
     border: 2px solid var(--light-orange);
     cursor: pointer;
+}
+
+.App .Main .Login button:hover {
+    background-color: var(--dark-orange);
+    color: var(--balck);
+    border-color: var(--black);
 }

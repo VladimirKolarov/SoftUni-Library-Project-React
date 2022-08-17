@@ -1,0 +1,88 @@
+.App .Main .Register-container {
+    /* position: absolute; */
+    max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 0px;
+
+}
+
+.App .Main .Register-container .Register {
+    max-width: 70%;
+    border-radius: 20px;
+    margin: auto;
+
+}
+
+.App .Main .Register-container .Register h2 {
+    padding-top: 40px;
+    font-size: 1.75em;
+    color: var(--dark-orange);
+}
+
+.App .Main .Register-container .Register label,
+.App .Main .Register input {
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    color: var(--balck);
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 5px 10px;
+    cursor: text;
+}
+
+.App .Main .Register-container .Register label {
+    margin-top: 40px;
+}
+
+.App .Main .Register-container .Register button {
+    background-color: transparent;
+    color: var(--dark-orange);
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 5px 35px;
+    margin: 40px 0;
+    border-radius: 20px;
+    border: 2px solid var(--light-orange);
+    cursor: pointer;
+}
+
+.App .Main .Register-container .Register button:enabled:hover {
+    background-color: var(--dark-orange);
+    color: var(--balck);
+    border-color: var(--black);
+}
+
+.App .Main .Register-container .Register button:disabled {
+    color: var(--beige);
+    border-color: var(--beige);
+    cursor: default;
+}
+
+.App .Main .Register-container .Register .Tac-check {
+    cursor: default;
+    margin-top: 40px;
+    color: var(--dark-orange);
+    font-size: 1.1em;
+}
+
+.App .Main .Register-container .Register .Tac-check input {
+    cursor: pointer;
+    display: inline;
+    margin-right: 35px;
+}
+
+.App .Main .Register-container .Register .Tac-check div {
+    display: inline;
+}
+
+.App .Main .Register-container .Register .Tac-check div span {
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.App .Main .Register-container .Register .Tac-check div span:hover {
+    color: var(--dark-orange);
+}
