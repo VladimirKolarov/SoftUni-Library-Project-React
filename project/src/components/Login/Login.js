@@ -1,24 +1,56 @@
 import "./Login.css"
 
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../contexts/AuthContext";
+
+import { loginUser } from "../../services/userServices.js";
 
 export const Login = () => {
 
+    const { userData, userLoginHandler } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [user, setUser] = useState({});
+    const [failedAuth, setfailedAuth] = useState(false);
+
+    useEffect(() => {
+        if (userData.accessToken) {
+            navigate("/", { replace: true });
+        }
+    }, [navigate, userData.accessToken]);
+
+
+    const loginChecker = (data) => {
+        if (data.accessToken) {
+            userLoginHandler(data);
+            navigate("/");
+        }
+        else {
+            userLoginHandler({});
+            setfailedAuth(true);
+        }
+    }
 
     const changeHandler = (e) => {
         setUser(oldState => ({ ...oldState, [e.target.name]: e.target.value }))
     };
 
-
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
-        console.log(user)
+        loginUser(user.username, user.password)
+            .then(authData => {
+                loginChecker(authData);
+            })
+            .catch((err) => {
+                console.log(err);
+                navigate("/404");
+            })
     }
 
     return (
-        <div className="Login-container">
+        <div className="Login-container" >
             <form onSubmit={submitHandler} className="Login">
 
                 <label htmlFor="username"> Username</label>
@@ -42,6 +74,8 @@ export const Login = () => {
                 />
 
                 <button>Login</button>
+
+                {failedAuth ? <p>Incorrect Username or Password</p> : undefined}
 
             </form>
         </div>

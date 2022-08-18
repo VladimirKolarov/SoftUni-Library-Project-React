@@ -38,3 +38,9 @@
     color: var(--balck);
     border-color: var(--black);
 }
+
+.App .Main .Login p {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--dark-orange);
+}

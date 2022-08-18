@@ -83,7 +83,7 @@ export const Register = () => {
                     <div >I agree with the <span onClick={tacClickHandler}>Terms and Conditions</span></div>
                 </div>
 
-                <button disabled = {!user.tac}>Register</button>
+                <button disabled={!user.tac}>Register</button>
 
             </form>
 
