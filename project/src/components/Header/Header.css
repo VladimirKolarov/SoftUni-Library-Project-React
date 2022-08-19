@@ -14,8 +14,12 @@
 
 .App-header > .Header-container{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     padding: 15px 10px;
+}
+
+.App-header .Header-container > div{
+    color: var(--dark-orange);
 }
 
 .App-header ul li{
@@ -23,6 +27,7 @@
     list-style-type: none;
     padding: 0px 20px;
 }
+
 
 .App-header ul li a{
     text-decoration: none;

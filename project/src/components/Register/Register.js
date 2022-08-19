@@ -25,7 +25,7 @@ export const Register = () => {
         e.preventDefault();
         console.log(user);
 
-        console.log("Username validator passed", isValidRegister.Username(user.username));
+        console.log("Email validator passed", isValidRegister.Email(user.email));
         console.log("Password validator passed: ", isValidRegister.Password(user.password));
         console.log("Confirm Password validator passed: ", isValidRegister.ConfirmPassword(user.password, user.confirmPassword));
     }
@@ -42,14 +42,24 @@ export const Register = () => {
 
                 <h2>Create new account</h2>
 
-                <label htmlFor="username"> Username</label>
+                <label htmlFor="name"> Name</label>
                 <input
-                    id="username"
+                    id="name"
                     type="text"
-                    name="username"
-                    placeholder="Must be a valid email"
+                    name="name"
+                    placeholder="At least 3 characters"
                     onChange={changeHandler}
                     value={user.username || ""}
+                />
+
+                <label htmlFor="email"> Email</label>
+                <input
+                    id="email"
+                    type="text"
+                    name="email"
+                    placeholder="Must be a valid email"
+                    onChange={changeHandler}
+                    value={user.email || ""}
                 />
 
                 <label htmlFor="password"> Password</label>
@@ -57,7 +67,7 @@ export const Register = () => {
                     id="password"
                     type="password"
                     name="password"
-                    placeholder="8 characters or more"
+                    placeholder="At least 8 characters"
                     onChange={changeHandler}
                     value={user.password || ""}
                 />

@@ -1,9 +1,14 @@
-const request = async (method, url, data) => {
+const request = async (method, url, data, header) => {
     try {
         let requestPrep;
 
         if (method === "GET") {
-            requestPrep = fetch(url);
+            requestPrep = fetch(url, {
+                headers: {
+                    "X-Authorization": header,
+                    "content-type": "application/json"
+                }
+            });
         }
         else {
             requestPrep = fetch(url, {

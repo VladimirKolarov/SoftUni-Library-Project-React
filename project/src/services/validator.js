@@ -6,7 +6,9 @@ const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).+$/
 
 export const isValidRegister = {
 
-    Username: (name) => emailRegEx.test(name),
+    Name: (name) => name.length >= 3,
+
+    Email: (email) => emailRegEx.test(email),
 
     Password: (password) => passwordRegEx.test(password) && password.length >= 8,
 
