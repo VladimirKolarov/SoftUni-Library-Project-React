@@ -1,14 +1,27 @@
 import "./Register.css";
 
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 import { Tac } from "./Tac/Tac";
 import { isValidRegister } from "../../services/validator";
+import { registerUser } from "../../services/userServices";
+import { AuthContext } from "../../contexts/AuthContext";
+
 
 export const Register = () => {
 
     const [user, setUser] = useState({});
     const [showTac, setShowTac] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [existingUser, setExistingUser] = useState(false);
+    const { userData, userLoginHandler } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const toggleError = (err, errText) => {
+        setErrors(oldState => ({ ...oldState, [err]: errText }));
+    }
 
     const changeHandler = (e) => {
         setUser(oldState => ({
@@ -21,14 +34,64 @@ export const Register = () => {
         setShowTac(oldState => !oldState);
     }
 
+    const checkInputHandler = (e, funk, errText) => {
+        !funk(e.target.value, user.password) ? toggleError(e.target.name, errText) : toggleError(e.target.name, null)
+    }
+
+    const registrationHandler = (inputData) => {
+        if (inputData.code) {
+            setExistingUser(true);
+        } else {
+            setExistingUser(false);
+            loginOnRegistration(inputData);
+            navigate("/", { replace: true });
+        }
+    }
+
+    const loginOnRegistration = (inputData) => {
+        const data = {
+            _id: inputData._id,
+            accessToken: inputData.accessToken,
+            email: inputData.email,
+            username: inputData.username
+        }
+        userLoginHandler(data);
+    }
+
     const submitHandler = (e) => {
         e.preventDefault();
         console.log(user);
 
-        console.log("Email validator passed", isValidRegister.Email(user.email));
-        console.log("Password validator passed: ", isValidRegister.Password(user.password));
-        console.log("Confirm Password validator passed: ", isValidRegister.ConfirmPassword(user.password, user.confirmPassword));
+        const localValidator = [
+            isValidRegister.Name(user.username),
+            isValidRegister.Email(user.email),
+            isValidRegister.Password(user.password),
+            isValidRegister.ConfirmPassword(user.password, user.confirmPassword),
+            isValidRegister.Tac(user.tac),
+        ]
+
+        if (localValidator.every(x => x == true)) {
+            registerUser(user.username, user.email, user.password)
+                .then(regData => {
+                    console.log("regData: ", regData);
+                    registrationHandler(regData);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            console.log("All clear!");
+        } else {
+            console.log("ERRORRRRR");
+        }
+
     }
+
+    useEffect(() => {
+        if (userData.accessToken) {
+            navigate("/", { replace: true });
+        }
+    }, [navigate, userData.accessToken]);
 
 
     return (
@@ -42,15 +105,17 @@ export const Register = () => {
 
                 <h2>Create new account</h2>
 
-                <label htmlFor="name"> Name</label>
+                <label htmlFor="username" > Name</label>
                 <input
-                    id="name"
+                    id="username"
                     type="text"
-                    name="name"
+                    name="username"
                     placeholder="At least 3 characters"
+                    onBlur={(e) => { checkInputHandler(e, isValidRegister.Name, "Must be at least 3 characters long") }}
                     onChange={changeHandler}
                     value={user.username || ""}
                 />
+                {errors.username && <p>{errors.username}</p>}
 
                 <label htmlFor="email"> Email</label>
                 <input
@@ -58,9 +123,11 @@ export const Register = () => {
                     type="text"
                     name="email"
                     placeholder="Must be a valid email"
+                    onBlur={(e) => { checkInputHandler(e, isValidRegister.Email, "Must be a valid email") }}
                     onChange={changeHandler}
                     value={user.email || ""}
                 />
+                {errors.email && <p>{errors.email}</p>}
 
                 <label htmlFor="password"> Password</label>
                 <input
@@ -68,9 +135,12 @@ export const Register = () => {
                     type="password"
                     name="password"
                     placeholder="At least 8 characters"
+                    onBlur={(e) => { checkInputHandler(e, isValidRegister.Password, "Must be at least 8 characters long and contain a lower case, an upper case, a number and a special character. Blood of a virgin and unicorn hair are not required but are recommended.") }}
                     onChange={changeHandler}
                     value={user.password || ""}
                 />
+                {errors.password && <p>{errors.password}</p>}
+
 
                 <label htmlFor="confirmPassword"> Confirm Password</label>
                 <input
@@ -78,9 +148,11 @@ export const Register = () => {
                     type="password"
                     name="confirmPassword"
                     placeholder="Same as Password"
+                    onBlur={(e) => { checkInputHandler(e, isValidRegister.ConfirmPassword, "Must be the same as Password") }}
                     onChange={changeHandler}
                     value={user.confirmPassword || ""}
                 />
+                {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
 
                 <div className="Tac-check">
                     <input
@@ -94,6 +166,11 @@ export const Register = () => {
                 </div>
 
                 <button disabled={!user.tac}>Register</button>
+
+                {existingUser && <h3>A user with the same email already exists</h3>}
+
+
+                {/* <button >Register</button> */}
 
             </form>
 

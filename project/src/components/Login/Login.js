@@ -14,15 +14,16 @@ export const Login = () => {
     const [user, setUser] = useState({});
     const [failedAuth, setfailedAuth] = useState(false);
 
-    useEffect(() => {
-        if (userData.accessToken) {
-            navigate("/", { replace: true });
-        }
-    }, [navigate, userData.accessToken]);
+    const loginChecker = (inputData) => {
+        if (inputData.accessToken) {
 
+            const data = {
+                _id: inputData._id,
+                accessToken: inputData.accessToken,
+                email: inputData.email,
+                username: inputData.username
+            }
 
-    const loginChecker = (data) => {
-        if (data.accessToken) {
             userLoginHandler(data);
             navigate("/");
         }
@@ -48,6 +49,13 @@ export const Login = () => {
                 navigate("/404");
             })
     }
+
+    useEffect(() => {
+        if (userData.accessToken) {
+            navigate("/", { replace: true });
+        }
+    }, [navigate, userData.accessToken]);
+
 
     return (
         <div className="Login-container" >

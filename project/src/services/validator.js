@@ -6,12 +6,13 @@ const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).+$/
 
 export const isValidRegister = {
 
-    Name: (name) => name.length >= 3,
+    Name: (name) => name != null && name.length >= 3,
 
     Email: (email) => emailRegEx.test(email),
 
     Password: (password) => passwordRegEx.test(password) && password.length >= 8,
 
-    ConfirmPassword: (password, confirmPassword) => password === confirmPassword,
+    ConfirmPassword: (confirmPassword, password) => password == confirmPassword,
 
+    Tac: (isActive) => isActive == true,
 }

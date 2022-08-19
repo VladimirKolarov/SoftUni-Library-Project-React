@@ -26,7 +26,7 @@ const request = async (method, url, data, header) => {
 
         return result;
     } catch (error) {
-        console.log(error);
+        console.log("Requester Error: ", error);
     }
 };
 
