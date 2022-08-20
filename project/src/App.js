@@ -58,8 +58,7 @@ function App() {
                             <Route path="/login" element={<Login />} />
                             <Route path="/Logout" element={<h2> Logout</h2>} />
                             <Route path="/register" element={<Register />} />
-                            <Route path="/mybooks" element={<h2> My Books</h2>} />
-                            <Route path="/404" element={<h2> 404 Page Not Found (real page for 404) </h2>} />
+                            {/* <Route path="/mybooks" element={<h2> My Books</h2>} /> */}
                             <Route path="*" element={<h2> 404 Page Not Found</h2>} />
 
                         </Routes>
