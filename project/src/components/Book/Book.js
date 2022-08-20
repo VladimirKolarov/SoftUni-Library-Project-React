@@ -22,7 +22,7 @@ export const Book = ({ book }) => {
                 <img src={book.thumbnailUrl} />
                 <article>
                     <h3 className="Book-title">{book.title}</h3>
-                    <h5 className="Authors">{book.authors.join(", ")}</h5>
+                    <h5 className="Authors">{book.authors? book.authors.join(", ") : undefined}</h5>
                     <p className="Description">{book.shortDescription}</p>
                 </article>
             </div>

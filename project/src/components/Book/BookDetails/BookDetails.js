@@ -16,9 +16,9 @@ export const BookDetails = (props) => {
                 <div className="Left-col">
                     <img src={props.book.thumbnailUrl} />
                     <h4> Written by: </h4>
-                    <p>{props.book.authors.join(", ")}</p>
+                    <p>{props.book.authors ? props.book.authors.join(", ") : undefined}</p>
                     <h4> Categories: </h4>
-                    <p>{props.book.categories.join(", ")}</p>
+                    <p>{props.book.categories ? props.book.categories.join(", ") : undefined}</p>
                 </div>
 
                 <div className="Right-col">

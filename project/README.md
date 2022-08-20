@@ -1,70 +1,37 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web application is designed and build with the sole purpose to demonstrate knowledge and skills obtained in the SoftUni React JS course. It has no commercial use and very limited practical applications.  
+This web application uses and relies on the SoftUni practice server (https://github.com/softuni-practice-server/softuni-practice-server). While all aspects of this web applications developed by me are free to use, for any and all forms of use of the SoftUni practice server, please regard the license that applies to the server and terms and use conditions set by the creator. 
 
-## Available Scripts
+### Features and usage:
 
-In the project directory, you can run:
+This web application contains Navbar, Register, Login pages, Home page and a catalogue (All books page).
 
-### `npm start`
+### Navbar:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Navbar contains links to the pages of the application. It changes dynamically depending on weather there is logged in user or not.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Registration:
 
-### `npm test`
+In order to register a new user must enter name, email, password and confirm password. 
+Name may be any string as long as it is at least 3 characters long.
+Email must be a valid email in format {string}@{string}.{string} All strings may contain uppercase characters, lowercase characters and numbers. The first string may also contain dots. 
+Password must be at least 8 characters long and must contain uppercase letter, lowercase letter, a number and a special character (- +!@#$%^&*.,?)
+Confirm password must match Password.
+The Terms and conditions checkbox must be checked.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Login: 
 
-### `npm run build`
+Must login with a valid registered email and password or with one of the default login emails and passwords provided by the server.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### All books page:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This is a catalogue of all the books in the Books collection. 
+There is a search bar that can search the collection by book title or by the name of the author. It is a simple string search and does not require the user to select which parameter is being used. It automatically searches in both the title and the author (or authors).   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Home page:
 
-### `npm run eject`
+This is the first page loaded when the application starts. It presents a random selection of several books to the user. It does not have a search bar. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Book details:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The books on the Home page and in the catalogue provide a Details page when clicked. This page gives additional information about the book, loke categories and longed description.  
