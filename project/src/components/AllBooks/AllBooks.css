@@ -1,0 +1,55 @@
+.AllBooks {
+    max-width: 70%;
+    border-radius: 20px;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.AllBooks>h2 {
+    padding: 40px 0px;
+    color: var(--dark-orange);
+    text-shadow: 1px 1px 1px var(--black);
+}
+
+.AllBooks ul {
+    width: 100%;
+    margin: auto;
+}
+
+.AllBooks li {
+    list-style: none;
+    margin: 40px auto;
+}
+
+.AllBooks .Search-bar {
+    padding-top: 50px;
+    width: 90%;
+    margin: auto;
+    align-content: space-between;
+    color: var(--black);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.AllBooks .Search-bar input {
+    margin: 0px 20px;
+    background-color: transparent;
+    padding: 5px 15px;
+    border: 1px solid var(--light-orange);
+    border-radius: 20px;
+}
+
+.AllBooks .Search-bar button {
+    background-color: var(--light-orange);
+    padding: 5px 15px;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.AllBooks .Search-bar button:hover {
+    background-color: var(--black);
+    border-color: var(--light-orange);
+    color: var(--light-orange);
+}

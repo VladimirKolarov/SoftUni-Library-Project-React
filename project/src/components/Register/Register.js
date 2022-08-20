@@ -15,7 +15,7 @@ export const Register = () => {
     const [user, setUser] = useState({});
     const [showTac, setShowTac] = useState(false);
     const [errors, setErrors] = useState({});
-    const [existingUser, setExistingUser] = useState(false);
+    const [registrationServerError, setRegistrationServerError] = useState({ hasError: false, error: "" });
     const { userData, userLoginHandler } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -40,9 +40,9 @@ export const Register = () => {
 
     const registrationHandler = (inputData) => {
         if (inputData.code) {
-            setExistingUser(true);
+            setRegistrationServerError({ hasError: true, error: inputData.message });
         } else {
-            setExistingUser(false);
+            setRegistrationServerError({ hasError: false, error: "" });
             loginOnRegistration(inputData);
             navigate("/", { replace: true });
         }
@@ -60,7 +60,6 @@ export const Register = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(user);
 
         const localValidator = [
             isValidRegister.Name(user.username),
@@ -73,16 +72,13 @@ export const Register = () => {
         if (localValidator.every(x => x == true)) {
             registerUser(user.username, user.email, user.password)
                 .then(regData => {
-                    console.log("regData: ", regData);
                     registrationHandler(regData);
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-
-            console.log("All clear!");
         } else {
-            console.log("ERRORRRRR");
+            console.log("Error in input fields! Registration failed!");
         }
 
     }
@@ -135,7 +131,7 @@ export const Register = () => {
                     type="password"
                     name="password"
                     placeholder="At least 8 characters"
-                    onBlur={(e) => { checkInputHandler(e, isValidRegister.Password, "Must be at least 8 characters long and contain a lower case, an upper case, a number and a special character. Blood of a virgin and unicorn hair are not required but are recommended.") }}
+                    onBlur={(e) => { checkInputHandler(e, isValidRegister.Password, "Must be at least 8 characters long and contain a lower case, an upper case, a number and a special character. A haiku, a gang sign and a hieroglyph are not required but are recommended.") }}
                     onChange={changeHandler}
                     value={user.password || ""}
                 />
@@ -167,8 +163,7 @@ export const Register = () => {
 
                 <button disabled={!user.tac}>Register</button>
 
-                {existingUser && <h3>A user with the same email already exists</h3>}
-
+                {registrationServerError.hasError && <h3>Error: {registrationServerError.error}</h3>}
 
                 {/* <button >Register</button> */}
 

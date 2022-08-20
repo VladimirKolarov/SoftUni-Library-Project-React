@@ -1,39 +1,42 @@
-:root{
-    --white:#fff;
-    --beige:#dcdbba;
-    --light-orange:#ee8d40;
-    --dark-orange:#dd7128;
-    --black:#1d1d1d;
-  }
-
-  .App-header {
-      background-color: var(--black);
-      min-height: 2em;
-      font-size: 1.25em;
-  }
-
-.App-header > .Header-container{
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 10px;
+:root {
+    --white: #fff;
+    --beige: #dcdbba;
+    --light-orange: #ee8d40;
+    --dark-orange: #dd7128;
+    --black: #1d1d1d;
 }
 
-.App-header .Header-container > div{
+.App-header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--black);
+    min-height: 2em;
+    font-size: 1.25em;
+    z-index: 100;
+}
+
+.App-header>.Header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+}
+
+.App-header .Header-container>div {
     color: var(--dark-orange);
 }
 
-.App-header ul li{
+.App-header ul li {
     display: inline-block;
     list-style-type: none;
     padding: 0px 20px;
 }
 
 
-.App-header ul li a{
+.App-header ul li a {
     text-decoration: none;
     color: var(--white);
 }
 
-.App-header ul li a:hover{
+.App-header ul li a:hover {
     color: var(--beige);
 }

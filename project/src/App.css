@@ -18,5 +18,6 @@
   min-height: calc(100vh - 3em);
   /* background-color: var(--light-beige); */
   padding: 0;
+  padding-top: 50px;
 }
 

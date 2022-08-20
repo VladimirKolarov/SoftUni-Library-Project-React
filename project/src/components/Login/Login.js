@@ -61,7 +61,7 @@ export const Login = () => {
         <div className="Login-container" >
             <form onSubmit={submitHandler} className="Login">
 
-                <label htmlFor="username"> Username</label>
+                <label htmlFor="username"> Email</label>
                 <input
                     id="username"
                     type="text"

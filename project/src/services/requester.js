@@ -2,20 +2,23 @@ const request = async (method, url, data, header) => {
     try {
         let requestPrep;
 
+        let requestHeaders = {
+            "content-type": "application/json"
+        }
+
+        if (header) {
+            requestHeaders["X-Authorization"] = header;
+        }
+
         if (method === "GET") {
             requestPrep = fetch(url, {
-                headers: {
-                    "X-Authorization": header,
-                    "content-type": "application/json"
-                }
+                headers: requestHeaders
             });
         }
         else {
             requestPrep = fetch(url, {
                 method,
-                headers: {
-                    "content-type": "application/json"
-                },
+                headers: requestHeaders,
                 body: JSON.stringify(data)
             });
         }
