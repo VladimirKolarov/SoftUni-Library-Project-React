@@ -50,7 +50,7 @@ export const Header = () => {
     const loggedinLinks = () => {
         return (
             <>
-                <li><Link to="/mybooks">My Books</Link></li>
+                <li><Link to="/createbook">Create Book</Link></li>
                 <li><Link to="/" onClick={logoutClickHandler}>Logout</Link></li>
             </>
         );

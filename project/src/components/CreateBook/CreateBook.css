@@ -1,0 +1,35 @@
+.Create-book-container {
+    max-width: 80%;
+    margin: auto;
+}
+
+.Create-book-container .Create-book h2 {
+    margin-top: 40px;
+}
+
+.Create-book-container .Create-book input,
+.Create-book-container .Create-book textarea,
+.Create-book-container .Create-book button {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    background-color: transparent;
+    border: 1px solid var(--light-orange);
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.Create-book-container .Create-book button {
+    color: var(--dark-orange);
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 5px 35px;
+    border: 2px solid var(--light-orange);
+    cursor: pointer;
+}
+
+.Create-book-container .Create-book button:hover {
+    background-color: var(--dark-orange);
+    color: var(--balck);
+    border-color: var(--black);
+}

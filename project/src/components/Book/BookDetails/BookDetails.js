@@ -4,7 +4,7 @@ export const BookDetails = (props) => {
 
     const closeBookHandler = () => {
         // console.log(book);
-        console.log(props.book);
+        // console.log(props.book);
         props.toggle();
         // setActiveBook(false);
     }

@@ -14,6 +14,7 @@ import { Login } from './components/Login/Login.js'
 import { Register } from './components/Register/Register';
 import { Home } from './components/Home/Home';
 import { AllBooks } from './components/AllBooks/AllBooks';
+import { CreateBook } from './components/CreateBook/CreateBook';
 
 
 
@@ -23,7 +24,7 @@ function App() {
 
     const [userData, setUserData] = useState({});
 
-    const [bookData, setBookData] = useState({});
+    const [bookData, setBookData] = useState([]);
 
     const bookDataHandler = (books) => {
         setBookData(books);
@@ -55,6 +56,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/allbooks" element={<AllBooks />} />
+                            <Route path="/createbook" element={<CreateBook />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/Logout" element={<h2> Logout</h2>} />
                             <Route path="/register" element={<Register />} />
