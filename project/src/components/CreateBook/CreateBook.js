@@ -3,7 +3,7 @@ import "./CreateBook.css"
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { createNew } from "../../services/bookServices";
+import { createNewBook } from "../../services/bookServices";
 import { AuthContext } from "../../contexts/AuthContext";
 import { BookContext } from "../../contexts/BookContext";
 
@@ -40,7 +40,7 @@ export const CreateBook = () => {
             return;
         }
 
-        createNew(userData.accessToken, newBook)
+        createNewBook(userData.accessToken, newBook)
             .then(data => {
                 console.log(data);
                 bookHandler(data);
@@ -59,9 +59,6 @@ export const CreateBook = () => {
             navigate("/", { replace: true });
         }
     }
-    console.log(bookData);
-
-
 
     return (
         <div className="Create-book-container">
@@ -121,7 +118,7 @@ export const CreateBook = () => {
                     name="longDescription"
                     rows="7"
                     cols="60"
-                    maxLength="450"
+                    maxLength="550"
                     placeholder="Enter a longer description"
                     onChange={changeHandler}
                     value={newBook.longDescription || ""}

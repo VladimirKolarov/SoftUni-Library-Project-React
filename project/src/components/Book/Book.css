@@ -7,7 +7,12 @@
     border: 1px solid var(--light-orange);
     background-color: var(--white);
     padding: 40px;
-    cursor: pointer;
+    /* cursor: pointer; */
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
 }
 
 .Book-container:hover {
@@ -21,6 +26,7 @@
     display: inline-block;
     object-position: center;
     width: 130px;
+    max-height: 180px;
     z-index: 1;
 }
 
