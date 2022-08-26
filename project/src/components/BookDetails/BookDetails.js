@@ -210,7 +210,7 @@ export const BookDetails = () => {
                     <p className="Description"> {!book.longDescription ? <>No Description available</> : book.longDescription}</p>
 
                     {
-                        // confirmOwner(userData._id, book._ownerId) && 
+                        confirmOwner(userData._id, book._ownerId) && 
                         <div className="Owner-area">
                             <button onClick={() => editClickHandler(userData, book)}> {isEditing ? "Cancel editing" : "Edit"}</button>
                             <button onClick={() => deleteClickHandler(userData, book)}>Delete</button>
