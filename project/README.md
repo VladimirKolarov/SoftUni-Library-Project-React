@@ -34,4 +34,4 @@ This is the first page loaded when the application starts. It presents a random 
 
 ### Book details:
 
-The books on the Home page and in the catalogue provide a Details page when clicked. This page gives additional information about the book, loke categories and longed description.  
+The books on the Home page and in the catalogue provide a Details page when clicked. This page gives additional information about the book, like categories and longed description. This page also provides options to edit the properties of the book (title, authors, description, etc.), as well as to delete the book. Only the "owner" of the book (the user that has created the book) is authorized to edit or delete the book, therefore the buttons for those actions are visible only to the book's owner.    
